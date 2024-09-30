@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[Branch] (
+    [Id] INT NOT NULL,
+    [Name] NVARCHAR(128) NOT NULL,
+	[SiteId] UNIQUEIDENTIFIER NOT NULL,
+    [IsDeleted] [BIT] NOT NULL
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Branch] ADD CONSTRAINT [PK__Branch] PRIMARY KEY CLUSTERED  ([SiteId],[Id]) ON [PRIMARY]
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX__Branch__Id] ON [dbo].[Branch] ([Id])
